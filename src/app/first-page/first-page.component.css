@@ -1,0 +1,43 @@
+h1{
+    font-size:10vh;
+    letter-spacing: 5px;
+    text-shadow: -1px -1px 1px black, 1px -1px 1px black, -1px 1px 1px black, 1px 1px 1px black;
+}
+.player-input{ 
+    height: 50px;
+    font-size: 22px;
+    width:300px;
+    border-radius: 2px;
+    padding:3px;
+    text-align: center;
+    border-radius: 5px;
+    border-width:1px;
+    margin:5px;
+}
+section{
+    font-size: xx-large;
+    font-weight: 600;
+    margin-top: 25vh;
+}
+button{
+    height:65px;
+    width:380px;
+    background-color: rgb(106, 105, 105);
+    font-size: 25px;
+    color:aliceblue;
+    letter-spacing: 3px;
+    font-weight: 500;
+    border-color: aliceblue;
+    border-width: 3px;
+    border-radius: 5px;
+}
+input[type="radio"] {
+    width: 21px; 
+    height: 21px; 
+    margin-right: 8px;
+}
+@media screen and (max-width: 768px) {
+    h1 {
+      font-size: 5vh; 
+    }
+}

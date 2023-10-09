@@ -1,0 +1,14 @@
+button {
+    width: 200px; 
+    height: 200px;
+    font-size: 24px; 
+    background-color: #fff; 
+    border: 2px solid #000; 
+    cursor: pointer; 
+  }
+  
+  
+  button[disabled], button.winner {
+    background-color: #ccc;
+    cursor: not-allowed; 
+  }

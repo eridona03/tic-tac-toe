@@ -1,0 +1,25 @@
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+  }
+  
+.leftSide{
+    margin-top: 17px;
+    margin-left: 18vh;
+}
+
+button{ 
+    background-color: aliceblue;
+    color:black;
+    font-size: 20px;
+    height: 50px; 
+    width:200px; 
+    border-radius: 6px; 
+    margin-top: 20px;
+} 
+button:hover{
+    background-color: rgb(180, 178, 178);
+    cursor: pointer;
+}  

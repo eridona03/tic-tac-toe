@@ -1,0 +1,12 @@
+button{
+    background-color: aliceblue;
+    color: black;
+    font-size: 20px;
+    height: 50px;
+    width:300px;
+    border-radius: 6px;
+}
+button:hover{
+    background-color: rgb(180, 178, 178);
+    cursor: pointer;
+}

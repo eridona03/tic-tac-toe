@@ -16,7 +16,20 @@ export class GameService {
   moves: { playerName: string; cellIndex: number; symbol: string }[] = [];
   locked: boolean = false;
   winner: string | null = null;
-  
+
+  player1Name: string = ''; 
+  player2Name: string = '';
+  //na duhen per logun
+  setPlayerNames(player1Name: string, player2Name: string) {
+    this.player1Name = player1Name;
+    this.player2Name = player2Name;
+  }
+
+  addMove(playerName: string, cellIndex: number, symbol: string) {
+    this.moves.push({ playerName, cellIndex, symbol });
+  }
+
+
   winningCombinations: number[][] = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rreshtat
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // Shtyllat
@@ -33,8 +46,11 @@ export class GameService {
 
   handleComputerMove(move: number) {
     if (!this.board[move] && !this.winner && !this.locked) {
-    
-      this.board[move] = 'O';
+
+      const symbol = 'O'; 
+      this.board[move] = symbol;
+      this.addMove(this.player2Name, move, symbol);
+      
       this.checkForWinner();
       this.currentPlayer = 1;
     }
@@ -61,10 +77,12 @@ export class GameService {
   
   handleSquareClick(index: number) {
     if (!this.board[index] && !this.winner && !this.locked) {
+
       //percaktimi i simbolit sipas rradhes
-      if (this.currentPlayer === 1) 
-        this.board[index] = 'X';
-      else {this.board[index] = 'O';}
+      const symbol = this.currentPlayer === 1 ? 'X' : 'O';
+      this.board[index] = symbol;
+
+      this.addMove(this.player1Name, index, symbol);
 
       this.checkForWinner();
       //nderrimi i rradhes pas levizjes

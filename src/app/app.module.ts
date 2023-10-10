@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { GameService } from './game.service';
 import { PlayerVsComputerComponent } from './player-vs-computer/player-vs-computer.component';
-import { PlayerVsPlayerComponent } from './player-vs-player/player-vs-player.component';
+import { PlayervsplayerComponent } from './playervsplayer/playervsplayer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { PlayerVsPlayerComponent } from './player-vs-player/player-vs-player.com
     GameBoardComponent, 
     FirstPageComponent, 
     PlayerVsComputerComponent, 
-    PlayerVsPlayerComponent
+    PlayervsplayerComponent
   ],
   exports:[FirstPageComponent],
   providers: [GameService],

@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
   <div>
-    <h2>Computer</h2>
     <button (click)="makeComputerMove()">Make Computer Move</button>
   </div>
   `,

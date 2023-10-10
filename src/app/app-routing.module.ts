@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { PlayerVsComputerComponent } from './player-vs-computer/player-vs-computer.component';
-import { PlayerVsPlayerComponent } from './player-vs-player/player-vs-player.component';
+import { PlayervsplayerComponent } from './playervsplayer/playervsplayer.component';
 
 const routes: Routes = [
   
@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'gameboard',
     children: [
-      { path: 'player-vs-player', component: PlayerVsPlayerComponent },
+      { path: 'player-vs-player', component: PlayervsplayerComponent },
       { path: 'player-vs-computer', component: PlayerVsComputerComponent },
       
     ],

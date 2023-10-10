@@ -11,19 +11,25 @@ import { GameBoardComponent } from '../game-board/game-board.component';
   imports: [LogComponent, ComputerComponent, GameBoardComponent],
   template: `
   <div>
-    <h2>{{ player1Name }} vs. Computer</h2>
-  
-    <app-game-board [board]="gameService.board" [winner]="gameService.winner"></app-game-board>
-    <p>Winner is: {{gameService.winner}} </p>
-  
-    <app-computer (computerMove)="handleComputerMove($event)"></app-computer>
-  
-    <app-log [moves]="gameService.moves"></app-log>
-    
-    <button (click)="gameService.resetGame()">Reset Game</button>
+    <h2>{{ player1Name }} vs. Computer </h2>
+
+    <h3> Current Player: {{ gameService.currentPlayer }}</h3>
+    <div class="grid-container">
+     <div class="leftSide">
+       <app-game-board [board]="gameService.board" [winner]="gameService.winner"></app-game-board>
+       <h2>Winner is: <b> {{gameService.winner}} </b> </h2>
+       <app-computer (computerMove)="handleComputerMove($event)"></app-computer>
+       <button (click)="gameService.resetGame()">Reset Game</button>  
+     </div>
+
+     <div class="log-container">
+      <app-log [moves]="gameService.moves"></app-log>
+    </div>
+   </div>
   </div>
   `,
-  
+  styleUrls:['./player-vs-computer.component.css'],
+
 })
 export class PlayerVsComputerComponent {
 
@@ -36,13 +42,16 @@ export class PlayerVsComputerComponent {
     this.route.queryParams.subscribe(params => {
       this.playerMode = +params['playerMode'];
       this.player1Name = params['player1Name'];
-      //this.player2Name = params['player2Name'];
+
+      this.gameService.setPlayerNames(this.player1Name, this.player2Name);
 
       this.computerMove.subscribe((move: number) => {
         this.handleComputerMove(move);
 
       })
     });
+
+    
   }
 
   handleSquareClick(index: number) {
@@ -51,8 +60,11 @@ export class PlayerVsComputerComponent {
 
   handleComputerMove(move: number) {
     if (!this.gameService.board[move] && !this.gameService.winner && !this.gameService.locked) {
-    
-      this.gameService.board[move] = 'O';
+      const symbol = 'O'; 
+      this.gameService.board[move] = symbol;
+
+      this.gameService.addMove(this.player2Name, move, symbol);
+      
       this.gameService.checkForWinner();
       this.gameService.currentPlayer = 1;
     }

@@ -11,19 +11,24 @@ export class GameService {
     this.resetGame();
   }
  
-  currentPlayer: number = 1;
+  
   public board: string[] = Array(9).fill('');
   moves: { playerName: string; cellIndex: number; symbol: string }[] = [];
   locked: boolean = false;
   winner: string | null = null;
+  gameOver: boolean = false;
 
   player1Name: string = ''; 
   player2Name: string = '';
+
+  
   //na duhen per logun
   setPlayerNames(player1Name: string, player2Name: string) {
     this.player1Name = player1Name;
     this.player2Name = player2Name;
   }
+
+  currentPlayer: string = this.player1Name;
 
   addMove(playerName: string, cellIndex: number, symbol: string) {
     this.moves.push({ playerName, cellIndex, symbol });
@@ -43,20 +48,7 @@ export class GameService {
   /*set setBoard( board  ){
     this.board = [...board]
   }*/
-
-  handleComputerMove(move: number) {
-    if (!this.board[move] && !this.winner && !this.locked) {
-
-      const symbol = 'O'; 
-      this.board[move] = symbol;
-      this.addMove(this.player2Name, move, symbol);
-      
-      this.checkForWinner();
-      this.currentPlayer = 1;
-    }
-  }
   
-
   boardIsFull():boolean{
     return this.board.every(square => square === 'X' || square === 'O');
   }
@@ -66,38 +58,43 @@ export class GameService {
       const [a, b, c] = combination;
       if (this.board[a] && this.board[a] === this.board[b] && this.board[a] === this.board[c]) {
 
-        this.winner = this.board[a];
+        this.winner = this.currentPlayer;
+        this.gameOver = true;
         break;
       }
       else if(this.boardIsFull() && !this.winner) {
-        console.log('It\'s a draw!');
+        this.winner ="draw";
+        this.gameOver = true;
       }
     }
   }
   
-  handleSquareClick(index: number) {
-    if (!this.board[index] && !this.winner && !this.locked) {
+  handleSquareClick(index: number, playerName: string) {
+    if (!this.board[index] && !this.gameOver) {
 
       //percaktimi i simbolit sipas rradhes
-      const symbol = this.currentPlayer === 1 ? 'X' : 'O';
+      const symbol = this.currentPlayer === this.player1Name ? 'X' : 'O';
       this.board[index] = symbol;
 
-      this.addMove(this.player1Name, index, symbol);
+      this.addMove(playerName, index, symbol);
 
       this.checkForWinner();
       //nderrimi i rradhes pas levizjes
-      if (this.currentPlayer === 1)
-        this.currentPlayer = 2;
-      else {this.currentPlayer = 1;}
+      if (!this.gameOver) {
+      if (this.currentPlayer === this.player1Name)
+        this.currentPlayer = this.player2Name;
+      else {this.currentPlayer = this.player1Name;}
+      }
     }
   }
   
   resetGame() {
     this.board = Array(9).fill('');
-    this.currentPlayer = 1;
     this.winner = null;
     this.locked = false;
+    this.gameOver = false;
     this.moves = []; 
+    this.currentPlayer = this.player1Name;
   }
 
   

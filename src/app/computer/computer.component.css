@@ -5,6 +5,7 @@ button{
     height: 50px;
     width:300px;
     border-radius: 6px;
+    margin-top: 15px;
 }
 button:hover{
     background-color: rgb(180, 178, 178);

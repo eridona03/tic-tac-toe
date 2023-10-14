@@ -1,5 +1,5 @@
 
-div {
+div  {
     background-image: url(https://cdn.pixabay.com/photo/2021/12/01/16/25/paper-6838467_960_720.png);
     height: 830px;
     width: 830px;
@@ -7,7 +7,9 @@ div {
   }
   
   h3 {
-    padding:20px;
+    padding-left:30px;
+    padding-top:30px;
+    padding-bottom: 20px;
     text-align: left;
     font-size: 25px;
     color:black;
@@ -17,15 +19,18 @@ div {
   
   ul {
     list-style-type: none;
-    padding: 20px;
+    padding: 15px;
     margin: 0;
   }
   
   li {
-    margin-bottom: 8px;
+    margin-bottom: 45px;
     font-size: 20px;
     color:black;
     text-align: left;
-    margin-left: 20px;
+    margin-left: 10px;
+    cursor: pointer;
   }
+
+ 
   

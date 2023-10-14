@@ -17,9 +17,12 @@ export class ComputerComponent {
   @Output() computerMove: EventEmitter<number> = new EventEmitter<number>(); 
 
   makeComputerMove() {
+    
+      
+      const randomMove = Math.floor(Math.random() * 9); // 3x3 game board
+      this.computerMove.emit(randomMove);
+   
   
-    const randomMove = Math.floor(Math.random() * 9); // 3x3 game board
-    this.computerMove.emit(randomMove);
   }
 
 }

@@ -11,4 +11,7 @@ button {
   button[disabled], button.winner {
     background-color: #ccc;
     cursor: not-allowed; 
+    color:rgb(94, 91, 91);
   }
+
+ 

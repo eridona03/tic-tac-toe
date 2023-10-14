@@ -15,7 +15,10 @@ import { SquareComponent } from '../square/square.component';
       <div class="square" *ngFor="let colIndex of [0, 1, 2]">
         <app-square
           [value]="gameService.board[rowIndex * 3 + colIndex]"
-          (squareClick)="gameService.handleSquareClick(rowIndex * 3 + colIndex)"
+          (squareClick)="gameService.handleSquareClick(rowIndex * 3 + colIndex, gameService.currentPlayer)"
+
+          [class.player-one]="gameService.currentPlayer === gameService.player1Name"
+          [class.player-two]="gameService.currentPlayer === gameService.player2Name"
         ></app-square>
       </div>
     </div>

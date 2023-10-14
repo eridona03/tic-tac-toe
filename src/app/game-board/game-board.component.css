@@ -5,3 +5,13 @@
     width:600px;
     margin: 0 auto;
 }
+
+ /* Define styles for player one */
+ .player-one {
+    color: blue;
+  }
+  
+  /* Define styles for player two */
+  .player-two {
+    color: red;
+  }

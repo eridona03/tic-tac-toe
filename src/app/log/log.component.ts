@@ -7,18 +7,25 @@ import { GameService } from '../game.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-  <div>
+  <div id="pt1">
     <h3>Game Log</h3>
     <ul>
-      <li *ngFor="let move of moves">
-        <span>{{ move.playerName === gameService.player1Name ? gameService.player1Name : gameService.player2Name }}</span> placed <span>{{ move.symbol }}</span> in cell {{ move.cellIndex }}
+      <li *ngFor="let move of moves" (click)="displaySymbol(move.symbol)">
+        <span>{{ move.playerName === gameService.player1Name ? gameService.player1Name : gameService.player2Name }}</span> played in cell number {{ move.cellIndex }}
       </li>
     </ul>
   </div>
+  
   `,
   styleUrls: ['./log.component.css']
 })
 export class LogComponent {
   constructor (public gameService: GameService){}
   @Input() moves: { playerName: string; cellIndex: number; symbol: string }[] = [];
+
+
+  displaySymbol(symbol: string) {
+    alert(`Placed symbol: ${symbol}`);
+  }
 }
+

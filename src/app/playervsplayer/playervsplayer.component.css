@@ -23,3 +23,13 @@ button:hover{
     background-color: rgb(180, 178, 178);
     cursor: pointer;
 }  
+
+ /* Define styles for player one */
+ .player-one {
+    color: blue;
+  }
+  
+  /* Define styles for player two */
+  .player-two {
+    color: red;
+  }

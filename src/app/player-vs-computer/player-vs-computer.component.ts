@@ -49,6 +49,7 @@ export class PlayerVsComputerComponent implements OnInit, OnDestroy{
       this.player1Name = params['player1Name'];
 
       this.gameService.setPlayerNames(this.player1Name, this.player2Name);
+      this.gameService.currentPlayer = this.player1Name;
 
       this.computerMove.subscribe((move: number) => {
         this.handleComputerMove(move);
@@ -61,7 +62,6 @@ export class PlayerVsComputerComponent implements OnInit, OnDestroy{
 
   ngOnDestroy() {
     this.gameService.resetGame();
-    this.gameService.currentPlayer="";
   }
 
   handleSquareClick(index: number) {
@@ -78,7 +78,13 @@ export class PlayerVsComputerComponent implements OnInit, OnDestroy{
       this.gameService.addMove(this.player2Name, move, symbol);
       
       this.gameService.checkForWinner();
-      this.gameService.currentPlayer = this.player1Name;
+      if(!this.gameService.gameOver){
+        this.gameService.currentPlayer = this.player1Name;
+      }
+      else{this.gameService.updateGameResult(this.player1Name, this.gameService.winner);
+        this.gameService.updateGameResult(this.player2Name, this.gameService.winner);
+      }
+      
 
     }
   }

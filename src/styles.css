@@ -5,3 +5,5 @@ body{
     background-repeat: no-repeat;
     opacity: 0.93;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

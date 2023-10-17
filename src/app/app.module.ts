@@ -7,6 +7,12 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { GameService } from './game.service';
 import { PlayerVsComputerComponent } from './player-vs-computer/player-vs-computer.component';
 import { PlayervsplayerComponent } from './playervsplayer/playervsplayer.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { GameResultsComponent } from './game-results/game-results.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,11 @@ import { PlayervsplayerComponent } from './playervsplayer/playervsplayer.compone
     GameBoardComponent, 
     FirstPageComponent, 
     PlayerVsComputerComponent, 
-    PlayervsplayerComponent
+    PlayervsplayerComponent,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    GameResultsComponent,
+    BrowserAnimationsModule, MatDialogModule
   ],
   exports:[FirstPageComponent],
   providers: [GameService],

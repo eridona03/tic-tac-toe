@@ -15,3 +15,11 @@ button {
   }
 
  
+  @media (max-width: 600px) {
+    button {
+      width: 130px; 
+      height: 130px; 
+      font-size: 25px; 
+    }
+
+  }

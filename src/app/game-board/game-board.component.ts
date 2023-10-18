@@ -33,5 +33,7 @@ export class GameBoardComponent {
   constructor(public gameService: GameService, private route: ActivatedRoute){}
   @Input() board: string[] = [];
   @Input() winner: string | null = null;
+
+  
 }
 

@@ -1,5 +1,4 @@
 
-
 export interface GameResults  {
   playerName: string;
   wins: number;

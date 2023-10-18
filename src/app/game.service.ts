@@ -11,11 +11,9 @@ export class GameService {
 
   public board: string[] = Array(9).fill('');
   moves: { playerName: string; cellIndex: number; symbol: string }[] = [];
-  locked: boolean = false;
   winner: string | null = null;
   gameOver: boolean = false;
 
-  isBoardDisabled: boolean = false;
 
   player1Name: string = ''; 
   player2Name: string = '';
@@ -44,13 +42,6 @@ export class GameService {
     [0, 4, 8], [2, 4, 6] // Diagonalet
   ];
 
-  get getBoard (){
-    return this.board
-  }
-
-  /*set setBoard( board  ){
-    this.board = [...board]
-  }*/
   
   boardIsFull():boolean{
     return this.board.every(square => square === 'X' || square === 'O');
@@ -96,21 +87,10 @@ export class GameService {
     }
   }
 
-  availableMoves(): number[] {
-    
-    const available = [];
-    for (let i = 0; i < this.board.length; i++) {
-      if (!this.board[i]) {
-        available.push(i);
-      }
-    }
-    return available;
-  }
-  
+ 
   resetGame() {
     this.board = Array(9).fill('');
     this.winner = null;
-    this.locked = false;
     this.gameOver = false;
     this.moves = []; 
     this.currentPlayer = this.player1Name;

@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'player-vs-player', component: PlayervsplayerComponent },
       { path: 'player-vs-computer', component: PlayerVsComputerComponent },
-      { path: 'game-results', component: GameResultsComponent },
+  
     ],
   },
 

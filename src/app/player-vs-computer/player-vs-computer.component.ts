@@ -69,7 +69,7 @@ export class PlayerVsComputerComponent implements OnInit, OnDestroy{
   }
 
   handleComputerMove(move: number) {
-    if (!this.gameService.board[move] && !this.gameService.winner && !this.gameService.locked) {
+    if (!this.gameService.board[move] && !this.gameService.winner) {
       
 
       const symbol = 'O'; 
@@ -78,6 +78,7 @@ export class PlayerVsComputerComponent implements OnInit, OnDestroy{
       this.gameService.addMove(this.player2Name, move, symbol);
       
       this.gameService.checkForWinner();
+
       if(!this.gameService.gameOver){
         this.gameService.currentPlayer = this.player1Name;
       }

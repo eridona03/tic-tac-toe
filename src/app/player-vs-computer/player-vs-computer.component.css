@@ -24,3 +24,21 @@ button:hover{
     cursor: pointer;
 
 }  
+
+
+@media (max-width: 768px) {
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr; 
+      gap: 0 px; 
+    }
+  
+    .leftSide {
+      margin-left: 0; 
+    }
+  
+    button {
+      width: 80%;
+    }
+  }
+  

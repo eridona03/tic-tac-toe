@@ -25,3 +25,17 @@ button:hover{
     cursor: pointer;
 }  
 
+@media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr; 
+      gap: 10px; 
+    }
+  
+    .leftSide {
+      margin: 17px auto; 
+    }
+  
+    button {
+      width: 80%;
+    }
+  }

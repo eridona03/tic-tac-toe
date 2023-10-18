@@ -6,12 +6,16 @@
     margin: 0 auto;
 }
 
- /* Define styles for player one */
- .player-one {
-    color: blue;
+
+@media (max-width: 767px) {
+    .square-container {
+      width: 100%; 
+      max-width: 100%;
+      margin: 0;
+      width:390px;
+      height:130px;
+      justify-content: flex-start;
+      flex-wrap: no-wrap;
+    }
   }
   
-  /* Define styles for player two */
-  .player-two {
-    color: red;
-  }
